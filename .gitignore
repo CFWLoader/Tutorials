@@ -26,3 +26,10 @@
 *.exe
 *.out
 *.app
+
+# File patterns
+*~
+*Debug*
+
+# Specific files
+.gitignore
