@@ -1,4 +1,5 @@
 #include "DemoCases.h"
+#include "mainwindow.h"
 
 #include <QApplication>
 #include <QLabel>
@@ -45,4 +46,12 @@ int demo3(int argc, char* argv[]){
     window->show();
 
     return a.exec();
+}
+
+int demo4(int argc, char *argv[]){
+    QApplication app(argc, argv);
+
+    MainWindow w;
+    w.show();
+    return app.exec();
 }

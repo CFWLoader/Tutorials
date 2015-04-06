@@ -4,5 +4,6 @@
 int demo1(int argc, char* argv[]);
 int demo2(int argc, char* argv[]);
 int demo3(int argc, char* argv[]);
+int demo4(int argc, char* argv[]);
 
 #endif // DEMOCASES_H
