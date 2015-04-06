@@ -28,6 +28,7 @@
 *.app
 
 # File patterns
+\.*
 *~
 *Debug*
 
