@@ -6,3 +6,5 @@ unless you delete the file manually.<br/>
 
 lock2.c is the experiment that presenting lock the file alternately.<br/>
 The crash seems will not happen in current linux file management.<br/>
+
+lock3.c is locking on a file and lock4.c is try to lock the file.<br/>
