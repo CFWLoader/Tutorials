@@ -7,10 +7,10 @@
 
 void* threadFunction(void* arg);
 //sem_t binarySemaphore;		//Replace binary semaphore with mutex.
-pthread_mutex workMutex;
+pthread_mutex_t workMutex;
 
-//#define WORK_SIZE 1024
-static const int WORK_SIZE = 1024;
+#define WORK_SIZE 1024
+//static const int WORK_SIZE = 1024;
 
 char workArea[WORK_SIZE];
 int timeToExit = 0;
@@ -48,10 +48,10 @@ int main()
 	*/
 	while(!timeToExit)
 	{
-		fgets(workArea, WORK_SIEZ, stdin);
+		fgets(workArea, WORK_SIZE, stdin);
 		pthread_mutex_unlock(&workMutex);
 		while(1){
-			pthread_mutex_lock(&work_mutex);
+			pthread_mutex_lock(&workMutex);
 			if(workArea[0] != '\0'){
 				pthread_mutex_unlock(&workMutex);
 				sleep(1);
@@ -75,7 +75,7 @@ int main()
 	printf("Thread joined.\n");
 
 	//sem_destroy(&binarySemaphore);
-	pthread_mutex_destroy(&mutex);
+	pthread_mutex_destroy(&workMutex);
 
 	exit(EXIT_SUCCESS);
 }
@@ -92,7 +92,7 @@ void* threadFunction(void* arg)
 
 		workArea[0] = '\0';
 
-		pthread_mutex_unlock(&mutex);
+		pthread_mutex_unlock(&workMutex);
 
 		sleep(1);
 
@@ -100,7 +100,23 @@ void* threadFunction(void* arg)
 
 		while(workArea[0] == '\0')
 		{
-			pthread_mutex
+			pthread_mutex_unlock(&workMutex);
+
+			sleep(1);
+
+			pthread_mutex_lock(&workMutex);
+		}
+	}
+
+	timeToExit = 1;
+
+	workArea[0] = '\0';
+
+	pthread_mutex_unlock(&workMutex);
+
+	pthread_exit(0);
+}
+
 	/*
 	sem_wait(&binarySemaphore);
 
@@ -112,4 +128,3 @@ void* threadFunction(void* arg)
 
 	pthread_exit(NULL);
 	*/
-}
