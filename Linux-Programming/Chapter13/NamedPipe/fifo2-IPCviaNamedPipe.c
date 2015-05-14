@@ -40,4 +40,29 @@ int main(int argc, char* argv[])
 
 	}
 
+	//Checking existence of file and create file if it's necessary.
+	if(access(FIFO_NAME, F_OK) == -1){
 
+		result = mkfifo(FIFO_NAME, 0777);
+
+		if(result != 0){
+			fprintf(stderr, "Could not create fifo %s.\n", FIFO_NAME);
+			exit(EXIT_FAILURE);
+		}
+
+	}
+
+	printf("Process %d opening FIFO.\n", getpid());
+
+	result = open(FIFO_NAME, openMode);
+
+	printf("Process %d result %d.\n", getpid(), result);
+
+	sleep(5);
+
+	if(result != -1) close(result);
+
+	printf("Process %d finished.\n", getpid());
+
+	exit(EXIT_SUCCESS);
+}
