@@ -110,6 +110,7 @@ static void deleteSemValue(void)
 
 static int semaphoreWait(void)
 {
+
 	struct sembuf semBuffer;
 
 	semBuffer.sem_num = 0;
@@ -131,7 +132,7 @@ static int semaphorePost(void)
 	struct sembuf semBuffer;
 
 	semBuffer.sem_num = 0;
-	semBuffer.sem_op = -1;  /* V() */
+	semBuffer.sem_op = 1;  /* V() */
 	semBuffer.sem_flg = SEM_UNDO;
 
 	if(semop(semId, &semBuffer, 1) == -1){
