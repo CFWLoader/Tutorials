@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++11 -Wall -g    CMakeFiles/runServer.dir/TestClass.cpp.o CMakeFiles/runServer.dir/main.cpp.o  -o runServer -rdynamic 

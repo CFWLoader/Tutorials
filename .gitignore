@@ -33,6 +33,9 @@
 *.iml
 *~
 *Debug*
+*/CMakeFiles/
+*CMakeCache.txt
+*cmake_install.cmake
 
 # Specific files
 .gitignore
