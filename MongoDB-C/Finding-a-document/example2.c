@@ -13,7 +13,7 @@ main (int   argc,
     bson_t *query;
     char *str;
 
-    mongoc_init ();
+    mongoc_init();
 
     client = mongoc_client_new ("mongodb://evan:123456@192.168.0.112:27017/");
     collection = mongoc_client_get_collection (client, "clown", "testCollection");
