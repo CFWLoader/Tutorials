@@ -1,1 +1,0 @@
-/run/media/cfwloader/Documents/Project/C++/Tutorials-On-Books/C++Templates/TraitsClass/CMakeFiles/traitsClass.dir
