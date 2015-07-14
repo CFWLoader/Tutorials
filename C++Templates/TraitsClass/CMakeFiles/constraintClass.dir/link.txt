@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -Wall -g    CMakeFiles/constraintClass.dir/main.cpp.o  -o constraintClass -rdynamic 

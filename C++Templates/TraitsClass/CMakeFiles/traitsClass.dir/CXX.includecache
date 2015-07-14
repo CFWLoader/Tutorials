@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/run/media/cfwloader/Documents/Project/C++/Tutorials-On-Books/C++Templates/TraitsClass/Accumulation.hpp
+AccumulationTraits.hpp
+/run/media/cfwloader/Documents/Project/C++/Tutorials-On-Books/C++Templates/TraitsClass/AccumulationTraits.hpp
+
+/run/media/cfwloader/Documents/Project/C++/Tutorials-On-Books/C++Templates/TraitsClass/AccumulationTraits.hpp
+
+/run/media/cfwloader/Documents/Project/C++/Tutorials-On-Books/C++Templates/TraitsClass/main.cpp
+Accumulation.hpp
+/run/media/cfwloader/Documents/Project/C++/Tutorials-On-Books/C++Templates/TraitsClass/Accumulation.hpp
+iostream
+-
+
