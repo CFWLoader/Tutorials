@@ -5,6 +5,11 @@ using namespace std;
 class HasFunctionMember
 {
 public:
+    HasFunctionMember()
+    {
+        cout << "Construtor is called." << endl;
+    }
+
     int fun()
     {
         cout << "This is a non-static member function." << endl;
