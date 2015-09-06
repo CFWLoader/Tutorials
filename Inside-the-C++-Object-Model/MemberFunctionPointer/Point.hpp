@@ -13,6 +13,8 @@ public:
 
     explicit Point(double x = 0.0) : x_(x){}
 
+    virtual ~Point(){}
+
     double x() const
     {
         return x_;
