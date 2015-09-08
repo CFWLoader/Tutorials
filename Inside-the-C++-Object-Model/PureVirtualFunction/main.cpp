@@ -11,5 +11,7 @@ int main()
 
     concreteDerived.interface();
 
+    cout << concreteDerived.mumble() << endl;
+
     return 0;
 }

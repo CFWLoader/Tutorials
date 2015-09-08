@@ -13,7 +13,7 @@ class ConcreteDerived : public AbstractBase
 
 public:
 
-    ConcreteDerived(const char*);
+    ConcreteDerived(const char *);
 
     ~ConcreteDerived();
 

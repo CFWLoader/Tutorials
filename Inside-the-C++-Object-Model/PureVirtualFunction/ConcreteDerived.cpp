@@ -11,6 +11,7 @@ ConcreteDerived::ConcreteDerived(const char* string) : AbstractBase(string)
 
 ConcreteDerived::~ConcreteDerived()
 {
+    std::cout << "ConcreteDerived::~ConcreteDerived()" << std::endl;
     delete[] mumble_;
 }
 

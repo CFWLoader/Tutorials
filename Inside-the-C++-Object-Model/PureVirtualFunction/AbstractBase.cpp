@@ -19,6 +19,7 @@ AbstractBase::AbstractBase(const char* string = "")
 // We have to give a definition to destructor or receipt a comile error.
 AbstractBase::~AbstractBase()
 {
+    std::cout << "AbstractBase::~AbstractBase()" << std::endl;
 }
 
 void AbstractBase::interface() const
