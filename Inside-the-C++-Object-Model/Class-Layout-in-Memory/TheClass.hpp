@@ -47,8 +47,8 @@ void test_base_model()
     classname = classname.substr(4,classname.find("@@")-4);
     cout << classname <<endl;
     cout << "虚函数表地址：\t\t\t" << (int*)(&b1) << endl;
-    cout << "虚函数表 — 第1个函数地址：\t" << (int*)*(int*)(&b1) << "\t即析构函数地址：" << (int*)*((int*)*(int*)(&b1)) << endl;
-    cout << "虚函数表 — 第2个函数地址：\t" << ((int*)*(int*)(&b1) + 1) << "\t";
+    cout << "虚函数表 — 第1个函数地址：\t" << (int*)*(int*)(&b1) << "\tBase::print()：" << (int*)*((int*)*(int*)(&b1)) << endl;
+    //cout << "虚函数表 — 第2个函数地址：\t" << ((int*)*(int*)(&b1) + 1) << "\t";
     typedef void(*Fun)(void);
     Fun pFun = (Fun)*(((int*)*(int*)(&b1)) + 1);
     pFun();
