@@ -40,3 +40,20 @@ fields = ('name', 'age', 'job', 'pay')
 record = dict.fromkeys(fields, '?')
 
 print(record)
+
+people = [bob, sue, nucky, eli, jimmy]
+
+for person in people:
+    print(person['name'], person['pay'], sep = ', ')
+
+print(list(map((lambda x: x['name']), people)))
+
+print([rec['name'] for rec in people if rec['age'] >= 45])      # SQL-like query.
+
+print([(rec['age'] ** 2 if rec['age'] >= 45 else rec['age']) for rec in people])
+
+generator = (rec['name'] for rec in people if rec['age'] >= 45) # Use a variable to indicate the iterator?
+
+print(next(generator))
+
+print(generator.__next__())
