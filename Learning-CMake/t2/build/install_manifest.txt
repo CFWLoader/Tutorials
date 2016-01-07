@@ -1,0 +1,4 @@
+/home/cfwloader/Documents/Pseudo/cmake/t2/COPYRIGHT
+/home/cfwloader/Documents/Pseudo/cmake/t2/README.md
+/home/cfwloader/Documents/Pseduo/bin/runHello.sh
+/home/cfwloader/Documents/Pseudo/doc/hello.txt
