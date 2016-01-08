@@ -1,0 +1,25 @@
+nucky
+age=>50
+job=>'Monger'
+name=>'Nucky Tompson'
+pay=>360000
+endrec.
+sue
+age=>45
+job=>'hdw'
+name=>'Sue Jones'
+pay=>40000
+endrec.
+bob
+age=>42
+job=>'dev'
+name=>'Bob Smith'
+pay=>30000
+endrec.
+eli
+age=>40
+job=>'shr'
+name=>'Eli Tompson'
+pay=>20000
+endrec.
+enddb.

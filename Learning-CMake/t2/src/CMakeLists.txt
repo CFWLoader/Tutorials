@@ -2,4 +2,6 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
+install(PROGRAMS ${EXECUTABLE_OUTPUT_PATH}/hello  DESTINATION Pseudo/bin)
+
 add_executable(hello main.c)
