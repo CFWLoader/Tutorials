@@ -1,4 +1,10 @@
 class ArticlesController < ApplicationController
+
+  # include ActionController::HttpAuthentication::Basic::ControllerMethods
+  # include ActionController::HttpAuthentication::Token::ControllerMethods
+
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
   def new
     @article = Article.new
   end
