@@ -1,6 +1,8 @@
 #ifndef CONCURRENCYSTACKDECL_HPP_
 #define CONCURRENCYSTACKDECL_HPP_
 
+#include "MutexLock.h"
+
 template<typename ElementType, 
 			template<typename ElemType, typename ALLOC = std::allocator<ElemType> > 
 				class CONT = std::deque>
@@ -21,6 +23,8 @@ public:
 private:
 
 	CONT<ElementType> container;
+
+	MutexLock lock;
 
 };
 
