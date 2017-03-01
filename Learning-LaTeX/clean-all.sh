@@ -17,7 +17,9 @@ clean_dir()
 
 search_subdir()
 {
-	curdur=$1
+	curdir=$1
+
+	# echo $curdir
 	
 	for sub in `ls $curdir`; do
 		# echo $sub
@@ -27,7 +29,9 @@ search_subdir()
 		fi
 	done
 
-	echo $curdir
+	clean_dir ${curdir}
+
+	# echo $curdir
 }
 
 search_subdir `pwd`
