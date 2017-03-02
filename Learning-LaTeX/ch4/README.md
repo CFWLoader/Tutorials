@@ -1,0 +1,14 @@
+# Summary
+-	LaTeX is a `powerful` tool to typeset math.
+-	Embed `formulas` in your text by `surrounding` then with dollar signs `$`.
+-	The `equation environment` is used to typeset `one` formula.
+-	The `align environment` will align formulas at thte `ampersano &` symbol.
+-	Single formulas `must` be seperated with `two backslashed \\`.
+-	Use the `matrix environment` to typeset matrices.
+	-	`matrix` environment must be surronuded by dollar symbol in my environment.
+-	All mathematical expressions have a unique command with unique syntax.
+-	Notable examples are:
+	-	`\int^a_b` for integral symbol.
+	-	`\frac{u}{v}` for fractions.
+	-	`\sqrt{x}` for square roots.
+-	Characters for the `greek alphabet` and other `mathematical symbols` such as `\lambda`.
