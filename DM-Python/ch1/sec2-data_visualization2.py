@@ -38,4 +38,3 @@ hist(data[:, 0], color='y', alpha=.7)
 xlim(xmin, xmax)
 
 savefig('./result-hist.jpg')
-savefig('./result-hist.jpg')
