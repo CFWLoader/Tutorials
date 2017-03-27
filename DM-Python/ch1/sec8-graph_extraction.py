@@ -3,6 +3,7 @@ __author__ = 'CFWLoader'
 import networkx as nx;
 import matplotlib.pyplot as plt;
 
+# data source: https://gephi.org/datasets/lesmiserables.gml.zip
 G = nx.read_gml('./lesmiserables.gml', relabel=True)
 
 Gt = G.copy()
