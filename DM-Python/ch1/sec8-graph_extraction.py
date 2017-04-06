@@ -14,6 +14,7 @@ for n in Gt.nodes():
     if dn[n] <= 10:
         Gt.remove_node(n)
 
-nx.draw(Gt,node_size=0,edge_color='b',alpha=.2,font_size=12)
+nx.draw(Gt,node_size=0,edge_color='b',alpha=.2,font_size=12, with_labels=True)
 
-plt.savefig('./lesmiserables_extracted.jpg')
+plt.show()
+# plt.savefig('./lesmiserables_extracted.jpg')
