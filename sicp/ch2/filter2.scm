@@ -46,4 +46,12 @@
 					(map fib
 						(enumerate-interval 0 n)))))
 
+(define (product-of-squares-of-odd-elements sequence)
+	(accumulate *
+				1
+				(map square
+					(filter odd? sequence))))
+
 (list-fib-squares 10)
+
+(product-of-squares-of-odd-elements (list 1 2 3 4 5))
