@@ -39,7 +39,21 @@ end
 
 def newton_transform g
 
-  
+  lambda{|x| x - g.call(x) / deriv(g).call(x)}
+
+end
+
+
+def newtons_method g, guess
+
+  fixed_point newton_transform(g), guess
+
+end
+
+
+def sqrt_newton x
+
+  newtons_method lambda{|y| y ** 2 - x}, 1.0
 
 end
 
@@ -51,6 +65,8 @@ if $0 == __FILE__
   average_damp_ruby(10, lambda{|x| x ** 2}) {|x| p x}
 
   p sqrt 2
+
+  p sqrt_newton 2
 
   p cube_root 27
 
