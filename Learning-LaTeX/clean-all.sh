@@ -1,6 +1,6 @@
 #!/bin/sh
 
-target_suffix=("*.dvi" "*.pdf" "*.aux" "*.log")
+target_suffix=("*.dvi" "*.pdf" "*.aux" "*.log" "*.lof" "*.lot" "*.toc" "*.bbl" "*.blg")
 
 # for ele in ${target_suffix[*]}; do
 # 	echo $ele

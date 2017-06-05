@@ -8,8 +8,6 @@ class Interval
 
   end
 
-  attr_reader :low_bound, :high_bound
-
   def inspect
 
     "#{@low_bound}~#{@high_bound}"
@@ -37,6 +35,12 @@ class Interval
     self * Interval.new(1.0 / rhs.high_bound, 1.0 / rhs.low_bound)
 
   end
+
+  # notice that ruby's 'private' doesn't allow accessing members between instances in same class.
+  # So this changed to 'protected'.
+  protected
+
+  attr_reader :low_bound, :high_bound
 
 end
 

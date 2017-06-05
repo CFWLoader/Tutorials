@@ -24,8 +24,6 @@ class Rational_ext
 
   end
 
-  attr_reader :numerator, :denominator
-
   def + rhs
 
     Rational_ext.new @numerator * rhs.denominator + rhs.numerator * @denominator, @denominator * rhs.denominator
@@ -61,6 +59,10 @@ class Rational_ext
     "#{@numerator}/#{@denominator}"
 
   end
+
+  protected
+
+  attr_reader :numerator, :denominator
 
 end
 
