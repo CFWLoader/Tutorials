@@ -25,6 +25,7 @@ class TreeNode
 
 end
 
+
 class K_Tree
 
   def initialize seq_ptn
@@ -149,17 +150,49 @@ class K_Tree
 
   end
 
+  def sum_odd_squares
+
+    quque = @root.childs.clone
+
+    sum = 0
+
+    until quque.empty?
+
+      if quque.first.val.nil?
+
+        quque << quque.first.childs
+
+        quque.flatten!
+
+      else
+
+        sum += quque.first.val ** 2 if quque.first.val % 2 != 0
+
+      end
+
+      quque.shift
+
+    end
+
+    sum
+
+  end
+
 end
 
 
 if $0 == __FILE__
 
-  tree = K_Tree.new [[1, 2], 3, 4, [[5], 6], 7]
+  # tree = K_Tree.new [[1, 2], 3, 4, [[5], 6], 7]
+  #
+  # puts tree.inspect
+  #
+  # tree.scale_element 3
+  #
+  # p tree
 
-  puts tree.inspect
+  tree = K_Tree.new [[1, 2], 3, 4, 7]
 
-  tree.scale_element 3
-
-  p tree
+  p tree.sum_odd_squares
 
 end
