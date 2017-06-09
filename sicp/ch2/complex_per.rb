@@ -1,14 +1,36 @@
 class Complex_per
 
-  def transform clazz
+  def same_class? rhs
 
-    
+    self.class == rhs.class
+
+  end
+
+  def fit_class clazz
 
   end
 
   def + rhs
 
+    self + fit_class(rhs)
 
+  end
+
+  def - rhs
+
+    self - fit_class(rhs)
+
+  end
+
+  def * rhs
+
+    self + fit_class(rhs)
+
+  end
+
+  def / rhs
+
+    self + fit_class(rhs)
 
   end
 
@@ -34,7 +56,7 @@ class Rectangular < Complex_per
 
   end
 
-  def mag_ang_form
+  def polar_values
 
     return Math.sqrt(@real_part ** 2 + @img_part ** 2), Math.atan2(@img_part, @real_part)
 
@@ -46,15 +68,15 @@ class Rectangular < Complex_per
 
   end
 
-  def -
+  def - rhs
 
-    Complex_per.new @real_part - rhs.real_part, @img_part - rhs.img_part
+    Rectangular.new @real_part - rhs.real_part, @img_part - rhs.img_part
 
   end
 
   def * rhs
 
-    Complex_per.new @real_part * rhs.real_part - @img_part * rhs.img_part, rhs.real_part * @img_part + @real_part * rhs.img_part
+    Rectangular.new @real_part * rhs.real_part - @img_part * rhs.img_part, rhs.real_part * @img_part + @real_part * rhs.img_part
 
   end
 
@@ -74,8 +96,8 @@ class Rectangular < Complex_per
     #
     # Complex_per mag * Math.cos(angle), mag * Math.sin(angle)
 
-    Complex_per.new (@real_part * rhs.real_part + @img_part * rhs.img_part) / (rhs.real_part ** 2 + rhs.img_part ** 2),
-                    (rhs.real_part * @img_part + @real_part * rhs.img_part) / (rhs.real_part ** 2 + rhs.img_part ** 2)
+    Rectangular.new (@real_part * rhs.real_part + @img_part * rhs.img_part) / (rhs.real_part ** 2 + rhs.img_part ** 2),
+                    (rhs.real_part * @img_part - @real_part * rhs.img_part) / (rhs.real_part ** 2 + rhs.img_part ** 2)
 
   end
 
@@ -94,11 +116,17 @@ class Polar < Complex_per
 
   end
 
-  def make_from_real_imagine real, img
+  def make_from_real_imaginary real, img
 
     @mag = Math.sqrt(real ** 2 + img ** 2)
 
     @ang = Math.atan2 img, real
+
+  end
+
+  def rectangular_values
+
+    return @mag * Math.cos(@ang), @mag * Math.sin(@ang)
 
   end
 
@@ -112,7 +140,7 @@ class Polar < Complex_per
 
   end
 
-  def -
+  def - rhs
 
     real = @mag * Math.cos(@ang) - rhs.mag * Math.cos(rhs.ang)
 
@@ -139,12 +167,18 @@ end
 
 if $0 == __FILE__
 
-  com = Rectangular.new 1, 1
+  com1 = Rectangular.new 1, 1
 
-  m, a =  com.mag_ang_form
+  com2 = Rectangular.new 2, 2
 
-  p m * Math.cos(a)
+  po1 = Polar.new com1.polar_values[0], com1.polar_values[1]
 
-  p m * Math.sin(a)
+  po2 = Polar.new com2.polar_values[0], com2.polar_values[1]
+
+  p com2 / com1
+
+  p (po2 / po1).rectangular_values
+
+  p com2.same_class? po1
 
 end
