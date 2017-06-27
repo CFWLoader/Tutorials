@@ -44,6 +44,14 @@ class OrGate < Gate
 
     @output = output_wire
 
+    @output.add_action! lambda{|args| args[:i1].get_signal or args[:i2].get_signal}, i1: @input1, i2: @input2
+
+  end
+
+  def get_output
+
+    @output.get_signal
+
   end
 
 end
@@ -58,6 +66,14 @@ class AndGate < Gate
     @input2 = input_wire2
 
     @output = output_wire
+
+    @output.add_action! lambda{|args| args[:i1].get_signal and args[:i2].get_signal}, i1: @input1, i2: @input2
+
+  end
+
+  def get_output
+
+    @output.get_signal
 
   end
 
@@ -135,7 +151,7 @@ class FullAdder
 end
 
 
-if $0 == __FILE__
+def test_case1
 
   i = Wire.new :in1
 
@@ -150,5 +166,35 @@ if $0 == __FILE__
   i.set_signal! true
 
   puts inverter.get_output
+
+end
+
+
+def test_case2
+
+  in1 = Wire.new :i1, false
+
+  in2 = Wire.new :i2, true
+
+  o = Wire.new :o
+
+  or_gate = OrGate.new in1, in2, o
+
+  p or_gate.get_output
+
+  in2.set_signal! false
+
+  p or_gate.get_output
+
+  p o.get_signal
+
+  #and_gate = AndGate.new in1, in2, o
+
+end
+
+
+if $0 == __FILE__
+
+  test_case2
 
 end
