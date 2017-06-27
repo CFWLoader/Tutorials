@@ -12,7 +12,7 @@ class Wire
   # SICP original codes is constructing a callback fun.
   def get_signal
 
-    @action.nil? ? @signal : @action
+    @action.nil? ? @signal : @action.call
 
   end
 
@@ -24,7 +24,7 @@ class Wire
 
   def add_action! proc, **args
 
-    @action = proc.call args
+    @action = lambda{proc.call args}
 
   end
 
@@ -78,7 +78,7 @@ class Inverter < Gate
 
   def invert_input input, output
 
-    expr = lambda {|i| i.get_signal}
+    expr = lambda {|i| !i[:ie].get_signal}
 
     output.add_action! expr, ie: input
 
@@ -143,11 +143,11 @@ if $0 == __FILE__
 
   inverter = Inverter.new i, o
 
-  i.set_signal! 0
+  i.set_signal! false
 
   puts inverter.get_output
 
-  i.set_signal! 1
+  i.set_signal! true
 
   puts inverter.get_output
 
