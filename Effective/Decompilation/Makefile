@@ -1,4 +1,4 @@
-TARGET=main.s main.m32.s
+TARGET=main.s main.m32.s original_demo.s
 
 all: ${TARGET}
 
