@@ -14,7 +14,8 @@
 # Load data input.
 input <- mtcars[,c('mpg','cyl')]
 
-# print(head(input))
+# print(mtcars)
+print(head(input))
 
 # Give the chart file a name.
 png(file = "boxplot1.png")
