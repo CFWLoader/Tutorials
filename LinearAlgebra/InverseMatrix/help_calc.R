@@ -27,6 +27,8 @@ matrix.det <- function(mat)
 
         for(row in c(1:len))
         {
+            # print(paste("DR[", row, dr_col, "],  TR[", row, tr_col, "]"))
+
             dr_sum = dr_sum * mat[row, dr_col]
 
             tr_sum = tr_sum * mat[row, tr_col]
@@ -58,21 +60,17 @@ matrix.det <- function(mat)
 
         if(dr_inverse_sum %% 2 == 1)
         {
-            det.val = det.val - dr_sum
-        }
-        else 
-        {
-            det.val = det.val + dr_sum
+            dr_sum = - dr_sum
         }
 
         if(tr_inverse_sum %% 2 == 1)
         {
-            det.val = det.val - tr_sum
+            tr_sum = - tr_sum
         }
-        else 
-        {
-            det.val = det.val + tr_sum
-        }
+
+        det.val = det.val + dr_sum + tr_sum
+
+        print(paste("C=", col, "DRIS=", dr_inverse_sum, "TRIS=", tr_inverse_sum, "DRSUM=", dr_sum, "TRSUM=", tr_sum))
 
         # print(det.val)
     }
@@ -85,12 +83,14 @@ matrix.det <- function(mat)
 # print(ginv(the_mat))
 
 # the_mat = matrix(c(1:4), nrow = 2)
-tlen = 20
+tlen = 5
 
 the_mat = matrix(runif(tlen ** 2), nrow = tlen)
 
-print(det(the_mat))
+# the_mat = matrix(c(1:4), nrow = 2)
 
 print(matrix.det(the_mat))
+
+print(det(the_mat))
 
 # print(1*5*9 + 2*6*7 + 3*4*8 - 7*5*3 - 8*6*1 - 9*4*2)
